@@ -3,6 +3,7 @@ Bundler.require
 require 'rake'
 require 'active_record'
 
+
 require_relative '../lib/user.rb'
 
 DB = ActiveRecored::Base.establish_connection(
