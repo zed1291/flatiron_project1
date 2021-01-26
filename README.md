@@ -1,10 +1,10 @@
-<h1 align="center" style="color:SlateBlue;">RUBY CLI Project</h1>
-<h2 style="color:DodgerBlue"> Deliverables:</h2>
+<h1 align="center" color="red">RUBY CLI Project</h1>
+<h2 color="blue"> Deliverables:</h2>
 
-Create a table of user data
-    -user data includes username, favourite cities
+<h3>Create a table of user data
+    -user data includes username, favourite cities</h3>
 
-Create a table of favourite cities/major cities
+<h3>Create a table of favourite cities/major cities</h3>
 
 ***
 
