@@ -1,0 +1,60 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activemodel (6.1.1)
+      activesupport (= 6.1.1)
+    activerecord (6.1.1)
+      activemodel (= 6.1.1)
+      activesupport (= 6.1.1)
+    activesupport (6.1.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
+      zeitwerk (~> 2.3)
+    coderay (1.1.3)
+    colorize (0.8.1)
+    concurrent-ruby (1.1.8)
+    figlet (1.1.0)
+    i18n (1.8.7)
+      concurrent-ruby (~> 1.0)
+    method_source (1.0.0)
+    minitest (5.14.3)
+    openweathermap (0.2.3)
+    pastel (0.8.0)
+      tty-color (~> 0.5)
+    pry (0.13.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    rake (13.0.3)
+    sqlite3 (1.4.2)
+    tty-color (0.6.0)
+    tty-cursor (0.7.1)
+    tty-prompt (0.23.0)
+      pastel (~> 0.8)
+      tty-reader (~> 0.8)
+    tty-reader (0.9.0)
+      tty-cursor (~> 0.7)
+      tty-screen (~> 0.8)
+      wisper (~> 2.0)
+    tty-screen (0.8.1)
+    tzinfo (2.0.4)
+      concurrent-ruby (~> 1.0)
+    wisper (2.0.1)
+    zeitwerk (2.4.2)
+
+PLATFORMS
+  x86_64-darwin-19
+
+DEPENDENCIES
+  activerecord
+  colorize
+  figlet
+  openweathermap
+  pry
+  rake
+  sqlite3
+  tty-prompt
+
+BUNDLED WITH
+   2.2.4
