@@ -1,1 +1,7 @@
 Deliverables:
+Create a table of user data
+    -user data includes favourite cities
+Create a table of favourite cities
+***
+Return a string with a city's weather conditions when it is asked for about that city
+Return a list of cities that's current weather (temp and conditions) meet the criteria given by a user
