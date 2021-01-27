@@ -1,3 +1,4 @@
-class FavoriteCity < ActiveRecord::Base
-    belongs_to :user
-end
+class City < ActiveRecord::Base
+    has_many :favorites
+    has_many :users, through: :favorites
+end 
