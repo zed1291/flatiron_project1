@@ -9,3 +9,19 @@ Suggest a random city out of the favourite cities list and give weather data
 Return all cities of a certain weather condition
     -either of favourites list
     -or out of major cities list
+
+CREATE TABLE favourites (
+    id INTEGER PRIMARY KEY,
+    city_id INTEGER,
+    user_id INTEGER
+);
+
+CREATE TABLE cities (
+    id INTEGER PRIMARY KEY,
+    name TEXT
+);
+
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY,
+    name TEXT
+);
