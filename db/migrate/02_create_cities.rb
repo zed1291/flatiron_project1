@@ -1,4 +1,4 @@
-class CreateFavoriteCities < ActiveRecord::Migration[6.1]
+class CreateCities < ActiveRecord::Migration[6.1]
     
     def change
         create_table :favorite_cities do |t|

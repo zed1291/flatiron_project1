@@ -1,3 +1,8 @@
+#!/usr/bin/env ruby
+
 require_relative '../config/environment.rb'
 
-WeatherCLI.new.start
+require_all './app'
+
+
+

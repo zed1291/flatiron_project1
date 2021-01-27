@@ -8,7 +8,7 @@ class WeatherCLI
     end
 
     def welcome
-        puts Figlet.new("BETTER WEATHER").to_s.colorize(:blue)
+        puts Figlet.new("JETSETTER WEATHER").to_s.colorize(:blue)
     end
 
     def instructions
