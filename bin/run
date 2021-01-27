@@ -2,6 +2,8 @@
 
 require_relative '../config/environment.rb'
 
+include 'openweathermap'
+
 require_all './app'
 
 
