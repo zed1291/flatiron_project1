@@ -17,14 +17,14 @@ require 'openweathermap'
 
 ActiveRecord::Base.establish_connection(
     :adapter => "sqlite3",
-    :database => "db/users.sqlite3"
+    :database => "db/weatherusers.db"
 )
 
 require 'logger'
 ActiveRecord::Base.logger = Logger.new(STDOUT)
 
 require_all 'app'
-require_all 'db'
+# require_all 'db'
 
 # DB = ActiveRecord::Base.connection
 
