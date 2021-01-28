@@ -19,6 +19,7 @@ GEM
     figlet (1.1.0)
     i18n (1.8.7)
       concurrent-ruby (~> 1.0)
+    logger (1.4.3)
     method_source (1.0.0)
     minitest (5.14.3)
     mustermann (1.1.1)
@@ -80,6 +81,7 @@ DEPENDENCIES
   activerecord
   colorize
   figlet
+  logger
   openweathermap (~> 0.2.3)
   pry
   rake

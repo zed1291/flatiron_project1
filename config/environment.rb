@@ -5,7 +5,8 @@ require 'rake'
 require 'sqlite3'
 require 'active_record'
 require 'tty-prompt'
-require 'sinatra-activerecord'
+require 'sinatra'
+require 'sinatra/activerecord'
 require 'require_all'
 require 'rspec'
 require 'pry'
@@ -17,14 +18,14 @@ require_all 'app'
 require_all 'db'
 
 require 'logger'
-ActiveRecord::Base.logger = nil
+ActiveRecord::Base.logger = Logger.new(STDOUT)
 
-DB = ActiveRecord::Base.establish_connection(
-    :adapter => "sqlite3",
-    :database => "./db/users.db"
-)
+# DB = ActiveRecord::Base.establish_connection(
+#     :adapter => "sqlite3",
+#     :database => "./db/users.db"
+# )
 
-ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
+# ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 
 # DB = ActiveRecord::Base.connection
 
