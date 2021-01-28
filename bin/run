@@ -2,27 +2,10 @@
 
 require_relative '../config/environment'
 
-# weathercli.new.start
-prompt = TTY::Prompt.new
-choices = {yes: 1, no: 2}
-
-prompt.select("Would you like to get the weather?", choices)
-
-prompt.yes?"Do you want the weather?" do |q|
-    q.suffix "Ya/Nah"
-end
-
-# def get_weather city
-#     api_key = "3515b22b30309dd2099a17dbb35cedd8"
-#     api = OpenWeatherMap::API.new(api_key, 'en', 'imperial')
-#     temp = api.current(city).weather_conditions.temperature
-#     conditions = api.current(city).weather_conditions.description
-#     "The temp in #{city} is #{temp}ºF and the condition is #{conditions}."
-# end
+weather = WeatherCLI.new
+weather.run
 
 
-# cities = ["Seattle", "Houston", "New York City", "Washington D.C.", "Paris"]
-# cities.each {|city| p get_weather(city)}
 
 
 

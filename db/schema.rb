@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 3) do
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "city_id"
+    t.string "comment"
     t.index ["city_id"], name: "index_favorites_on_city_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
