@@ -21,7 +21,8 @@ ActiveRecord::Base.establish_connection(
 )
 
 require 'logger'
-ActiveRecord::Base.logger = Logger.new(STDOUT)
+ActiveRecord::Base.logger = nil
+# Logger.new(STDOUT)
 
 require_all 'app'
 # require_all 'db'
@@ -29,3 +30,10 @@ require_all 'app'
 # DB = ActiveRecord::Base.connection
 
 # PROMPT = TTY::Prompt.new
+# choices = {yes: 1, no: 2}
+
+# prompt.select("Would you like to get the weather?", choices)
+
+# prompt.yes?"Do you want the weather?" do |q|
+#     q.suffix "Ya/Nah"
+# end
