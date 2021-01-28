@@ -13,19 +13,18 @@ require 'pry'
 require 'colorize'
 require 'figlet'
 require 'openweathermap'
- 
-require_all 'app'
-require_all 'db'
+
+
+ActiveRecord::Base.establish_connection(
+    :adapter => "sqlite3",
+    :database => "db/users.sqlite3"
+)
 
 require 'logger'
 ActiveRecord::Base.logger = Logger.new(STDOUT)
 
-# DB = ActiveRecord::Base.establish_connection(
-#     :adapter => "sqlite3",
-#     :database => "./db/users.db"
-# )
-
-# ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
+require_all 'app'
+require_all 'db'
 
 # DB = ActiveRecord::Base.connection
 
