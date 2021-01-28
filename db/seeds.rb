@@ -1,24 +1,21 @@
-# User.destroy_all
-# City.destroy_all
-# Favorite.destroy_all
+User.destroy_all
+City.destroy_all
+Favorite.destroy_all
 
 
-# user1 = User.create(username: "yellowsnow")
-# user2 = User.create(username: "joeexotic")
-# user3 = User.create(username: "thisisthedog")
+User.create(username: "yellowsnow")
+User.create(username: "joeexotic")
+User.create(username: "thisisthedog")
 
-# city1 = City.create(name: "New York City")
-# city2 = City.create(name: "Paris")
-# city3 = City.create(name: "San Francisco")
-# city4 = City.create(name: "London")
-# city5 = City.create(name: "Tokyo")
+City.create(name: "New York City")
+City.create(name: "Paris")
+City.create(name: "San Francisco")
+City.create(name: "London")
+City.create(name: "Tokyo")
 
-# fav1 = Favorite.create(user_id: user1.id, city_id: city5.id, comment: "The best food ever")
-# fav2 = Favorite.create(user_id: user1.id, city_id: city4.id, comment: "Awesome nightlife")
-# fav3 = Favorite.create(user_id: user1.id, city_id: city2.id, comment: "The Louvre is a must!")
-# fav4 = Favorite.create(user_id: user2.id, city_id: city1.id, comment: "Best city in the world")
-# fav5 = Favorite.create(user_id: user3.id, city_id: city3.id, com ment: "Tech Capital")
-# fav6 = Favorite.create(user_id: user3.id, city_id: city1.id, comment: "Trip next week")
-
-
-
+Favorite.create(user_id: 1, city_id: 5, comment: "The best food ever")
+Favorite.create(user_id: 2, city_id: 1, comment: "Awesome nightlife")
+Favorite.create(user_id: 2, city_id: 2, comment: "Musée du Louvre est très génial!")
+Favorite.create(user_id: 3, city_id: 1, comment: "Best city in the world")
+Favorite.create(user_id: 2, city_id: 3, comment: "Tech Capital")
+Favorite.create(user_id: 1, city_id: 4, comment: "Trip next week")
