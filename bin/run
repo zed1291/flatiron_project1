@@ -7,40 +7,41 @@ PROMPT = TTY::Prompt.new
 puts "Welcome to Zoonie Weather!"
 input = PROMPT.ask("Enter username")
 user = User.set_username_for_application(input)
-# puts user
-# answer1 = PROMPT.yes?("Would you like the weather of your favourite cities?")
-# if answer1 == true
-#     user.get_my_fav_weather
-# end
 
-# answer2 = PROMPT.yes?("Would you get weather for another city?")
-# if answer2 == true
-#     what_city = PROMPT.ask("What city?")
-#     puts user.get_weather(what_city)
-# end
+answer1 = PROMPT.yes?("Would you like the weather of your favourite cities?")
+if answer1 == true
+    user.get_my_fav_weather
+end
 
-# answer3 = PROMPT.yes?("Would you like to update your favourite cities list?")
-# if answer3 == true
-    # answer4 = PROMPT.yes?("would you like to add a new city?")
-    # if answer4 == true
-    #     city_to_add = PROMPT.ask("What city would you like to add?")
-    #     comment = PROMPT.ask("Add a comment about the city")
-    #     new_city = City.create(name: city_to_add)
-    #     Favorite.create(user_id: user.id, city_id: new_city.id, comment: comment)
-    # end
-#     if answer4 == false
+answer2 = PROMPT.yes?("Would you get weather for another city?")
+if answer2 == true
+    what_city = PROMPT.ask("What city?")
+    puts user.get_weather(what_city)
+end
+
+answer3 = PROMPT.yes?("Would you like to update your favourite cities list?")
+if answer3 == true
+    answer4 = PROMPT.yes?("would you like to add a new city?")
+    if answer4 == true
+        city_to_add = PROMPT.ask("What city would you like to add?")
+        comment = PROMPT.ask("Add a comment about the city")
+        new_city = City.create(name: city_to_add)
+        Favorite.create(user_id: user.id, city_id: new_city.id, comment: comment)
+    end
+    if answer4 == false
         answer5 = PROMPT.yes?("Would you like to delete a city?")
         if answer5 == true
             puts "These are your current favourite cities:"
             user.get_fav_cities.map {|city| puts City.where(id: city.city_id).first.name}
             to_delete = PROMPT.ask("Which one would you like to delete?")
-            instance_to_delete = City.find_by(name: to_delete)
-            puts "instance_to_delete: #{instance_to_delete}"
+            instance_to_delete = City.find_by(name: to_delete) #instance of city
+            fav_instance = Favorite.where(user_id: user.id, city_id: instance_to_delete.id)
+            Favorite.delete(fav_instance.first.id)
             user.get_fav_cities.map {|city| puts City.where(id: city.city_id).first.name}
         end
-    # end
+    end
 
 
-# end
+end
 
 puts "have a great day!"
