@@ -4,10 +4,10 @@ class User < ActiveRecord::Base
 
     def self.set_username_for_application (username)
         if User.all.any? {|account| account.username == username}
-            puts "there is a match"
+            # puts "there is a match"
             User.all.find {|account| account.username == username}
         else
-            puts "there is no match"
+            # puts "there is no match"
             User.create(username: username)
         end
     end
