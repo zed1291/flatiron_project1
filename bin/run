@@ -2,30 +2,67 @@
 
 require_relative '../config/environment'
 
+PROMPT = TTY::Prompt.new
+
 puts "Welcome to Zoonie Weather!"
-PROMPT.ask("Enter username")
+input = PROMPT.ask("Enter username")
+user = User.set_username_for_application(input)
 #do some magic to check if username exits and use that if it does
 #otherwise we create a new user with the inputted username
+puts user
+puts ""
+puts User.all
+answer = PROMPT.yes?("Would you like the weather of your favourite cities?")
+# if yes, retrive their fav cities list and run .get_weather on them
+if answer == true
+    # Favorite.all.map {|favorite| favorite.user_id == user.id}.each {|fav| fav.get_weather}
+    Favorite.all.each do |favorite|
+        if favorite.id == user.id
+            puts "we are about to check weather"
+            puts "favorite: #{favorite}"
+            puts "favorite.id: #{favorite.id}"
+            puts "City.all"
+        end
+    end
+end
 
-PROMPT.yes?("Would you like the weather of your favourite cities?")
-if yes, retrive their fav cities list and run .get_weather on them
+# PROMPT.yes?("Would you get weather for another city?")
+# if yes, run .get_weather on the inputted string
 
-PROMPT.yes?("Would you get weather for another city?")
-if yes, run .get_weather on the inputted string
-
-PROMPT.yes?("Would you like to update your favourite cities list?")
-if yes
-    PROMPT.yes?("would you like to add a new city?")
-    if yes, PROMPT.ask("What city would you like to add?")
-        update favourites for that user
-        return table of fav cities
-    Prompt.yes?("Would you like to delete a city?")
-    if yes
-        puts list of fav cities
-        Prompt.ask("Which city would you like to delete?")
-        delete city from favs list
-        return table of fav cities
+# PROMPT.yes?("Would you like to update your favourite cities list?")
+# if yes
+#     PROMPT.yes?("would you like to add a new city?")
+#     if yes, PROMPT.ask("What city would you like to add?")
+#         update favourites for that user
+#         return table of fav cities
+#     Prompt.yes?("Would you like to delete a city?")
+#     if yes
+#         puts list of fav cities
+#         Prompt.ask("Which city would you like to delete?")
+#         delete city from favs list
+#         return table of fav cities
 
 puts "have a great day!"
 
+# def run
+#     answer = greet
+#     if answer == true
+#         variable = get_city
+#         puts get_weather(variable)
+#     else answer == false
+#         puts "bye felicia"
+#     end
+# end
 
+
+# def welcome
+#     puts Figlet.new("JETSETTER WEATHER").to_s.colorize(:blue)
+# end
+
+# def get_weather city
+# api_key = "3515b22b30309dd2099a17dbb35cedd8"
+#     api = OpenWeatherMap::API.new(api_key, 'en', 'imperial')
+#     temp = api.current(city).weather_conditions.temperature
+#     conditions = api.current(city).weather_conditions.description
+#     "The temp in #{city} is #{temp}ºF and the condition is #{conditions}."
+# end

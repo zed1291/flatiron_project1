@@ -2,25 +2,31 @@ class User < ActiveRecord::Base
     has_many :favorites
     has_many :cities, through: :favorites
 
-    def run
-        set_username_for_application
-    end
-
-    def user
-        PROMPT.ask("Enter username")
-    end
-
-    def set_username_for_application
-        if User.all.any? {|account| account.username = user}
-            @username = user
+    def self.set_username_for_application (username)
+        if User.all.any? {|account| account.username == username}
+            puts "there is a match"
+            User.all.find {|account| account.username == username}
         else
-            User.create(username: user)
+            puts "there is no match"
+            User.create(username: username)
         end
     end
 
-    def get_my_favorite_cities_and_the_weather
-        Favorite.all.select {|favorite| favorite.user_id == self.id}
-    end 
+    def get_fav_cities
+        Favorite.where(user_id: self.id)
+    end
+
+    def get_my_fav_weather
+        self.get_fav_cities.map {|favorite| City.where(id: favorite.city_id).first.name}.each {|city| p get_weather(city)}
+    end
+
+    def get_weather city
+        api_key = "3515b22b30309dd2099a17dbb35cedd8"
+        api = OpenWeatherMap::API.new(api_key, 'en', 'imperial')
+        temp = api.current(city).weather_conditions.temperature
+        conditions = api.current(city).weather_conditions.description
+        "The temp in #{city} is #{temp}ºF and the condition is #{conditions}."
+    end
 
     
 
