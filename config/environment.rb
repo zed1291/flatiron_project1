@@ -25,6 +25,6 @@ ActiveRecord::Base.logger = nil
 # Logger.new(STDOUT)
 
 require_all 'app'
-# require_all 'db'
+
 
 # DB = ActiveRecord::Base.connection

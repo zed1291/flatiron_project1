@@ -2,12 +2,30 @@
 
 require_relative '../config/environment'
 
-weather = WeatherCLI.new
-weather.run
+puts "Welcome to Zoonie Weather!"
+PROMPT.ask("Enter username")
+#do some magic to check if username exits and use that if it does
+#otherwise we create a new user with the inputted username
 
+PROMPT.yes?("Would you like the weather of your favourite cities?")
+if yes, retrive their fav cities list and run .get_weather on them
 
+PROMPT.yes?("Would you get weather for another city?")
+if yes, run .get_weather on the inputted string
 
+PROMPT.yes?("Would you like to update your favourite cities list?")
+if yes
+    PROMPT.yes?("would you like to add a new city?")
+    if yes, PROMPT.ask("What city would you like to add?")
+        update favourites for that user
+        return table of fav cities
+    Prompt.yes?("Would you like to delete a city?")
+    if yes
+        puts list of fav cities
+        Prompt.ask("Which city would you like to delete?")
+        delete city from favs list
+        return table of fav cities
 
-
+puts "have a great day!"
 
 
