@@ -12,8 +12,12 @@ class User < ActiveRecord::Base
         end
     end
 
-    def get_fav_cities
+    def get_fav_cities #returns thier instances
         Favorite.where(user_id: self.id)
+    end
+
+    def list_of_cities #returns cities as strings
+        self.get_fav_cities.map {|city| puts City.where(id: city.city_id).first.name}
     end
 
     def get_my_fav_weather
