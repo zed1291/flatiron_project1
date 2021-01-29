@@ -12,7 +12,7 @@ desc 'requires environment file for console'
     require_relative 'config/environment'
 end
 
-desc 'outputs greeting to the terminal'
-task :greeting do 
+desc 'starts program'
+task :start do 
     puts "Welcome to Zoonie Weather"
 end

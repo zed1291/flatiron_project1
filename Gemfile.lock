@@ -16,7 +16,6 @@ GEM
     colorize (0.8.1)
     concurrent-ruby (1.1.8)
     diff-lcs (1.4.4)
-    figlet (1.1.0)
     i18n (1.8.7)
       concurrent-ruby (~> 1.0)
     logger (1.4.3)
@@ -44,11 +43,12 @@ GEM
     rspec-expectations (3.10.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
-    rspec-mocks (3.10.1)
+    rspec-mocks (3.10.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
-    rspec-support (3.10.1)
+    rspec-support (3.10.2)
     ruby2_keywords (0.0.4)
+    ruby_figlet (0.6.1)
     sinatra (2.1.0)
       mustermann (~> 1.0)
       rack (~> 2.2)
@@ -80,13 +80,13 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   colorize
-  figlet
   logger
   openweathermap (~> 0.2.3)
   pry
   rake
   require_all
   rspec
+  ruby_figlet
   sinatra-activerecord
   sqlite3
   tty-prompt
