@@ -4,10 +4,24 @@ require_relative '../config/environment'
 require_relative '../app/weathercli'
 require 'figlet'
 
+require 'figlet'
+
+# font = Figlet::Font.new('big.flf')
+# figlet = Figlet::Typesetter.new(font)
+# puts figlet['hello world']
+system "clear"
+
 PROMPT = TTY::Prompt.new
 
 
-puts "Welcome to Zoonie Weather!"
+def le_fin
+    @final_answer = PROMPT.yes?("Would you like to keep using the app?")
+    if @final_answer == true
+        run_this_puppy
+    else
+        p "Have a great day!"
+    end
+end
 
 def run_this_puppy
     input = PROMPT.ask("Enter username")
@@ -17,7 +31,7 @@ def run_this_puppy
         user.get_my_fav_weather
     end
 
-    answer2 = PROMPT.yes?("Would you get weather for another city?")
+    answer2 = PROMPT.yes?("Would you like to get weather for another city?")
     if answer2 == true
         what_city = PROMPT.ask("What city?")
         puts user.get_weather(what_city)
@@ -48,13 +62,7 @@ def run_this_puppy
             end
         end
     end
-    if answer3 == false
-        @final_answer = PROMPT.yes?("Would you like to keep using the app?")
-    end
+    le_fin
 end
+puts "Welcome to Zoonie Weather!"
 run_this_puppy
-if @final_answer == true
-    run_this_puppy
-else
-    p "Have a great day!"
-end
