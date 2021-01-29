@@ -12,8 +12,4 @@ User stories:
 1. User signs in and gets current weather for their favorite cities. Program will return string with each city's temperature and weather conditions.
 2. User is able to search for current weather in another city.
 3. User is able to add city to their favorite cities list.
-<<<<<<< HEAD
 4. User is able to delete city from their favorite cities list. 
-=======
-4. User is able to delete city from their favorite cities list. 
->>>>>>> master
