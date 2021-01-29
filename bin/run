@@ -48,14 +48,13 @@ def run_this_puppy
             end
         end
     end
-end
-run_this_puppy
-le_fin
-def le_fin
-    if PROMPT.yes?("Would you like to keep using the app?") == true
-        run_this_puppy
+    if answer3 == false
+        @final_answer = PROMPT.yes?("Would you like to keep using the app?")
     end
 end
-
-puts "Have a great day!"
-
+run_this_puppy
+if @final_answer == true
+    run_this_puppy
+else
+    p "Have a great day!"
+end
