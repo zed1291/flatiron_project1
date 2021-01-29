@@ -6,8 +6,14 @@ require 'figlet'
 
 PROMPT = TTY::Prompt.new
 
-
-puts "Welcome to Zoonie Weather!"
+def le_fin
+    @final_answer = PROMPT.yes?("Would you like to keep using the app?")
+    if @final_answer == true
+        run_this_puppy
+    else
+        p "Have a great day!"
+    end
+end
 
 def run_this_puppy
     input = PROMPT.ask("Enter username")
@@ -17,7 +23,7 @@ def run_this_puppy
         user.get_my_fav_weather
     end
 
-    answer2 = PROMPT.yes?("Would you get weather for another city?")
+    answer2 = PROMPT.yes?("Would you like to get weather for another city?")
     if answer2 == true
         what_city = PROMPT.ask("What city?")
         puts user.get_weather(what_city)
@@ -48,14 +54,7 @@ def run_this_puppy
             end
         end
     end
+    le_fin
 end
+puts "Welcome to Zoonie Weather!"
 run_this_puppy
-le_fin
-def le_fin
-    if PROMPT.yes?("Would you like to keep using the app?") == true
-        run_this_puppy
-    end
-end
-
-puts "Have a great day!"
-
