@@ -1,7 +1,10 @@
 #!/usr/bin/env ruby
 
 require_relative '../config/environment'
-require 'figlet'
+require 'ruby_figlet'
+require 'colorize'
+
+system "clear"
 
 PROMPT = TTY::Prompt.new
 
@@ -10,12 +13,12 @@ def le_fin
     if @final_answer == true
         run_this_puppy
     else
-        p "Have a great day!"
+        puts "Have a great day!".cyan
     end
 end
 
 def run_this_puppy
-    input = PROMPT.ask("Enter username")
+    input = PROMPT.ask("Enter username:")
     user = User.set_username_for_application(input)
     answer1 = PROMPT.yes?("Would you like the weather of your favourite cities?")
     if answer1 == true
@@ -25,7 +28,7 @@ def run_this_puppy
     answer2 = PROMPT.yes?("Would you like to get weather for another city?")
     if answer2 == true
         what_city = PROMPT.ask("What city?")
-        puts user.get_weather(what_city)
+        user.get_weather(what_city)
     end
     
     answer3 = PROMPT.yes?("Would you like to update your favourite cities list?")
@@ -36,24 +39,30 @@ def run_this_puppy
             comment = PROMPT.ask("Add a comment about the city")
             new_city = City.adding_city(city_to_add)
             Favorite.create(user_id: user.id, city_id: new_city.id, comment: comment)
-            puts "These are your current favourite cities:"
+            puts "These are your current favourite cities:".blue
             user.list_of_cities
         end
         if answer4 == false
             answer5 = PROMPT.yes?("Would you like to delete a city?")
             if answer5 == true
-                puts "These are your current favourite cities:"
+                puts "These are your current favourite cities:".blue
                 user.list_of_cities
                 to_delete = PROMPT.ask("Which one would you like to delete?")
                 instance_to_delete = City.find_by(name: to_delete)
                 fav_instance = Favorite.where(user_id: user.id, city_id: instance_to_delete.id)
                 Favorite.delete(fav_instance.first.id)
-                puts "These are your current favourite cities:"
+                puts "These are your current favourite cities:".blue
                 user.list_of_cities
             end
         end
     end
     le_fin
 end
-puts "Welcome to Zoonie Weather!"
+
+using RubyFiglet
+
+welcome = RubyFiglet::Figlet.new("Welcome to\nZoonie Weather!", 'banner3')
+puts welcome
+puts "We're glad you're here. Let's get started!".cyan
+
 run_this_puppy

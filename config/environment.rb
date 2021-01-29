@@ -11,7 +11,7 @@ require 'require_all'
 require 'rspec'
 require 'pry'
 require 'colorize'
-require 'figlet'
+require 'ruby_figlet'
 require 'openweathermap'
 
 
