@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 require_relative '../config/environment'
-require_relative '../app/weathercli'
 require 'figlet'
 
 PROMPT = TTY::Prompt.new
