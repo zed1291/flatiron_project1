@@ -28,7 +28,7 @@ def run_this_puppy
     answer2 = PROMPT.yes?("Would you like to get weather for another city?")
     if answer2 == true
         what_city = PROMPT.ask("What city?")
-        user.get_weather(what_city)
+        puts user.get_weather(what_city)
     end
     
     answer3 = PROMPT.yes?("Would you like to update your favourite cities list?")
