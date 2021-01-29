@@ -1,7 +1,7 @@
 <h1 align="center">ZOONIE WEATHER</h1>
 <h3 align="center">RUBY CLI Project</h3>
 
-<h4>Application uses OpenWeatherAPI to get current weather information for a user.</h4>
+<h4>Application uses OpenWeatherMap API to get current weather information for a user.</h4>
 <h5>Many-to-Many-through models: user(username), favorite(user_id, city_id), city (name)</h5>
 
 
